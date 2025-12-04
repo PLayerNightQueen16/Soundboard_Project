@@ -139,6 +139,7 @@ body{
     .logo { width:36px; height:36px; }
     .tile-icon svg { width:44px; height:44px; }
     :root { --tile-size: 140px; }
+    .soundboard {grid-template-columns: repeat(4, 1fr);}
 }
 
 #volumeIcon {
