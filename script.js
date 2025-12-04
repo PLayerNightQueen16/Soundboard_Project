@@ -156,3 +156,24 @@ if (volumeBtn) {
         updateVolumeIcon(currentVolume);
     });
 }
+
+// Auto-change Thunderstorm label on small screens
+function updateThunderstormLabel() {
+    const thunderBtn = document.querySelector('.tile[data-sound="thunderstorm"]');
+    if (!thunderBtn) return;
+
+    const label = thunderBtn.querySelector('.tile-label');
+    if (!label) return;
+
+    if (window.innerWidth < 480) {
+        label.textContent = "Thunder Storm";
+    } else {
+        label.textContent = "Thunderstorm";
+    }
+}
+
+// Run on page load
+updateThunderstormLabel();
+
+// Run on window resize
+window.addEventListener("resize", updateThunderstormLabel);
