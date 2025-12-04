@@ -147,3 +147,169 @@ body{
     fill: black;
     stroke: black;
 }
+
+
+/* === Responsive fixes for top controls (slider + button) === */
+
+/* Allow brand and controls to share the topbar space nicely */
+.topbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Let brand shrink when space is tight (prevents forcing controls off-screen) */
+.brand {
+  flex: 1 1 auto;      /* grow, shrink, take available space */
+  min-width: 0;        /* allow contents to truncate rather than overflow */
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Ensure the brand-text doesn't force overflow */
+.brand-text {
+  min-width: 0;
+}
+.brand-text h1, .brand-text .tagline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Controls area: allow wrapping and shrinking */
+.controls-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 0 0 auto;    /* don't take up extra space from brand, but allow wrapping */
+  flex-wrap: wrap;   /* important: wrap on very small screens */
+  justify-content: flex-end;
+}
+
+/* Make slider fluid on narrow screens */
+#volume {
+  width: min(160px, 40vw); /* max 160px on desktop; on mobile use 40% of viewport */
+  max-width: 220px;
+  box-sizing: border-box;
+}
+
+/* Slightly smaller control button padding so it fits */
+.control-btn {
+  padding: 6px;
+  min-width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* If header becomes narrow, stack controls in two rows but aligned right */
+@media (max-width: 480px) {
+  .topbar {
+    padding: 10px 12px;
+  }
+  .controls-top {
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  #volume { width: 44vw; }        /* slider becomes wider percentage on tiny screens */
+  .vol-label { display: none; }   /* hide the "Volume" label on very small screens */
+  .brand-text .tagline { display: none; } /* hide tagline to save space */
+}
+
+/* Optional: ensure topbar contents never overflow horizontally */
+.topbar, .container {
+  overflow: visible;
+}
+
+/* Extra safety: prevent the slider from growing too tall or forcing layout */
+#volume::-webkit-slider-thumb { /* keep default thumb size */
+  height: 18px; width: 18px;
+}
+
+/* Brand is prioritized: it keeps its space; controls will adapt */
+.brand {
+  flex: 0 0 auto;     /* brand keeps its intrinsic width */
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Title stays single-line and visible */
+.brand-text h1 {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Controls area should shrink/wrap to avoid hiding the brand */
+.controls-top {
+  flex: 1 1 auto;
+  display:flex;
+  gap:10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;    /* allow wrap when very narrow */
+}
+
+/* Hide the tagline on small screens to preserve space for title */
+@media (max-width: 600px) {
+  .brand-text .tagline { display: none; }
+}
+
+/* --- PRIORITIZE THE BRAND (Option B) --- */
+.brand {
+  flex: 0 0 auto;      /* brand keeps its natural width */
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-text h1 {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  margin: 0;
+  font-size: 18px;
+}
+
+.controls-top {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;      /* allow wrapping when the screen is narrow */
+}
+
+/* --- MOBILE LAYOUT FIX: slider top, mute button centered below it --- */
+@media (max-width: 480px) {
+
+  /* Make the control area vertical on small screens */
+  .controls-top {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+  }
+
+  /* Center the slider */
+  #volume {
+    width: 70%;     /* adjust width for mobile */
+    max-width: 260px;
+  }
+
+  /* Center the mute button directly under the slider */
+  #volumeBtn {
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Hide tagline on small screens to give space */
+  .brand-text .tagline {
+    display: none;
+  }
+}
