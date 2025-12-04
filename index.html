@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Soundboard</title>
+
+    <!-- external stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <!-- simple logo (SVG) -->
+            <svg class="logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="10" fill="#ffcc00" />
+                <path d="M7 12c0-2.8 2.2-5 5-5v10c-2.8 0-5-2.2-5-5z" fill="#222" />
+                <path d="M14 7.5L18 5v14l-4-2.5" fill="#222" />
+            </svg>
+            <div class="brand-text">
+                <h1>Soundboard</h1>
+                <p class="tagline">Quick sounds — instant fun</p>
+            </div>
+        </div>
+
+        <div class="controls-top">
+            <label class="vol-label" for="volume">Volume</label>
+            <input id="volume" type="range" min="0" max="1" step="0.01" value="1" />
+            <button id="volumeBtn" class="control-btn" aria-pressed="false" title="Mute / Unmute">
+                <svg id="volumeIcon" viewBox="0 0 24 24" class="icon-sm" aria-hidden="true">
+                    <!-- default icon (volume high) -->
+                    <path d="M5 9v6h4l5 5V4l-5 5H5z"></path>
+                    <path d="M18 7a5 5 0 010 10" stroke="currentColor" stroke-width="2" fill="none" />
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+    <main class="container">
+        <p class="hint">Tap a tile or press the label to play. Previous sound stops automatically.</p>
+
+        <div class="soundboard" role="region" aria-label="Soundboard">
+
+            <!-- dog icon -->
+            <button class="tile" data-sound="dog" aria-label="Dog sound">
+                <span class="tile-icon">🐶</span>
+                <span class="tile-label">Dog</span>
+            </button>
+
+            <!-- clap icon -->
+            <button class="tile" data-sound="clap" aria-label="Clap sound">
+                <span class="tile-icon">👏🏻</span>
+                <span class="tile-label">Clap</span>
+            </button>
+
+            <!-- pop icon -->
+            <button class="tile" data-sound="pop" aria-label="Pop sound">
+                <span class="tile-icon">✨</span>
+                <span class="tile-label">Pop</span>
+            </button>
+
+            <!-- laugh icon -->
+            <button class="tile" data-sound="laugh" aria-label="Laugh sound">
+                <span class="tile-icon">😂</span>
+                <span class="tile-label">Laugh</span>
+            </button>
+
+            <!-- blast icon -->
+            <button class="tile" data-sound="blast" aria-label="Laugh sound">
+                <span class="tile-icon">💥</span>
+                <span class="tile-label">Blast</span>
+            </button>
+
+            <!-- drum icon -->
+            <button class="tile" data-sound="drum" aria-label="Laugh sound">
+                <span class="tile-icon">🥁</span>
+                <span class="tile-label">Drum</span>
+            </button>
+
+            <!-- camera icon -->
+            <button class="tile" data-sound="camera" aria-label="Laugh sound">
+                <span class="tile-icon">📸</span>
+                <span class="tile-label">Camera</span>
+            </button>
+
+            <!-- horn icon -->
+            <button class="tile" data-sound="horn" aria-label="Laugh sound">
+                <span class="tile-icon">📢</span>
+                <span class="tile-label">Horn</span>
+            </button>
+            
+            <!-- bell icon -->
+            <button class="tile" data-sound="bell" aria-label="Laugh sound">
+                <span class="tile-icon">🔔</span>
+                <span class="tile-label">Bell</span>
+            </button>
+            
+            <!-- thud icon -->
+            <button class="tile" data-sound="thud" aria-label="Laugh sound">
+                <span class="tile-icon">🔊</span>
+                <span class="tile-label">Thud</span>
+            </button>
+            
+            <!-- thunder icon -->
+            <button class="tile" data-sound="thunder" aria-label="Laugh sound">
+                <span class="tile-icon">🌩️</span>
+                <span class="tile-label">Thunder</span>
+            </button>
+            
+            <!-- rain icon -->
+            <button class="tile" data-sound="rain" aria-label="Laugh sound">
+                <span class="tile-icon">🌧️</span>
+                <span class="tile-label">Rain</span>
+            </button>
+            
+            <!-- thunderstorm icon -->
+            <button class="tile" data-sound="thunderstorm" aria-label="Laugh sound">
+                <span class="tile-icon">⛈️</span>
+                <span class="tile-label">Thunderstorm</span>
+            </button>
+            
+            <!-- wind icon -->
+            <button class="tile" data-sound="wind" aria-label="Laugh sound">
+                <span class="tile-icon">🌪️</span>
+                <span class="tile-label">Wind</span>
+            </button>
+
+            <!-- ocean icon -->
+            <button class="tile" data-sound="ocean" aria-label="Laugh sound">
+                <span class="tile-icon">🌊</span>
+                <span class="tile-label">Ocean</span>
+            </button>
+
+            <!-- birds icon -->
+            <button class="tile" data-sound="birds" aria-label="Laugh sound">
+                <span class="tile-icon">🕊️</span>
+                <span class="tile-label">Birds</span>
+            </button>
+
+            <!-- rooster icon -->
+            <button class="tile" data-sound="rooster" aria-label="Laugh sound">
+                <span class="tile-icon">🐓</span>
+                <span class="tile-label">Rooster</span>
+            </button>
+
+            <!-- cat icon -->
+            <button class="tile" data-sound="cat" aria-label="Laugh sound">
+                <span class="tile-icon">🐈</span>
+                <span class="tile-label">Cat</span>
+            </button>
+
+            <!-- horse icon -->
+            <button class="tile" data-sound="horse" aria-label="Laugh sound">
+                <span class="tile-icon">🐴</span>
+                <span class="tile-label">Horse</span>
+            </button>
+
+            <!-- wolf icon -->
+            <button class="tile" data-sound="wolf" aria-label="Laugh sound">
+                <span class="tile-icon">🐺</span>
+                <span class="tile-label">Wolf</span>
+            </button>
+
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <small>Built with <strong>new Audio()</strong> • Local files</small>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
