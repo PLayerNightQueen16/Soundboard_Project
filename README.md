@@ -148,13 +148,13 @@ cd Soundboard_Project
 
 ## 📜 License
 
-This project is open for personal or educational use.
+This project is open for personal or educational use.  
 Attribution is appreciated but not required.
 
 ---
 
 ## 👩‍💻 Author
 
-Shreya Pal
-Built as a fun interactive front-end project using the Web Audio API.
+Shreya Pal  
+Built as a fun interactive front-end project using the Web Audio API.  
 Open to futhur contributions!!
